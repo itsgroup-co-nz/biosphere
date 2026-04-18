@@ -1,0 +1,57 @@
+## Subsystem Dependency Chain
+
+```mermaid
+
+flowchart TD
+    SYSTEMD["systemd"] --> BI["bio_init"]
+
+    BI --> LOGGER["sys-logger"]
+    LOGGER --> AUTH["sys-auth"]
+    LOGGER --> FIREWALL["sys-firewall"]
+    AUTH --> SECURITY["sys-security"]
+    SECURITY --> COMMS["sys-comms"]
+    FIREWALL --> NGINX_SVC["sys-nginx"]
+    NGINX_SVC --> VERIFY["sys-verification"]
+    COMMS --> QUEUES["sys-queues"]
+    QUEUES --> TELE["sys-tele"]
+    TELE --> OPA["sys-opa"]
+    OPA --> COGNITIVE["sys-cognitive"]
+    COGNITIVE --> CTRL["sys-ctrl"]
+    CTRL --> RESOURCES["sys-resources"]
+    RESOURCES --> MAINT["sys-maint"]
+    VERIFY --> MARIADB["sys-mariadb"]
+    MARIADB --> WP_PUSH["sys-wp"]
+    MARIADB --> GW["sys-gateway"]
+    GW --> HAP["sys-hap"]
+    HAP --> MCP["sys-mcp"]
+    MAINT --> AGENT_INBOX["agent-inbox"]
+    AGENT_INBOX --> DEERFLOW["deerflow"]
+
+    QUEUES --> BR_STATUS["bridge-status"]
+    QUEUES --> BR_HEART["bridge-heart"]
+    QUEUES --> BR_CONSUMER["bridge-consumer"]
+    BR_HEART --> BR_HEALTH["bridge-health"]
+    BR_HEART --> BR_RESONANCE["bridge-resonance"]
+    BR_RESONANCE --> BR_PULSE["bridge-pulse"]
+    BR_STATUS --> SYSMON["sysmon-core"]
+    SYSMON --> ALERT_CON["alert-consumer"]
+    ALERT_CON --> ALERT_DIS["alert-dispatcher"]
+
+    QUEUES --> AUDITOR["sys-auditor"]
+    QUEUES --> GRAPHDB["sys-graphdb"]
+    AUDITOR --> ANALYZER["sys-analyzer"]
+    GRAPHDB --> LIBRARIAN["sys-librarian"]
+
+    classDef core fill:#f3e5f5,stroke:#9C27B0,color:#000
+    classDef monitor fill:#e3f2fd,stroke:#1565C0,color:#000
+    classDef product fill:#e8f5e9,stroke:#2E7D32,color:#000
+    classDef deerflow fill:#fce4ec,stroke:#C62828,color:#000
+    classDef entry fill:#fff9c4,stroke:#F57F17,color:#000
+
+    class SYSTEMD,BI entry
+    class LOGGER,AUTH,SECURITY,FIREWALL,COMMS,QUEUES,TELE,OPA,COGNITIVE,CTRL,RESOURCES,MAINT,MARIADB,WP_PUSH,NGINX_SVC,VERIFY,GW,HAP,MCP core
+    class BR_STATUS,BR_HEART,BR_HEALTH,BR_RESONANCE,BR_PULSE,BR_CONSUMER,SYSMON,ALERT_CON,ALERT_DIS monitor
+    class AUDITOR,ANALYZER,GRAPHDB,LIBRARIAN product
+    class AGENT_INBOX,DEERFLOW deerflow
+
+```
