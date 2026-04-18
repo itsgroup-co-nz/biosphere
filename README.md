@@ -46,3 +46,11 @@ Before any significant structural change, ask:
 > *"Does this reduce a real, present risk — or does it solve a problem we deliberately designed away?"*
 
 If the answer is the latter, stop.
+
+---
+
+## Contact ITS Group
+
+Website: [https://itsgroup.co.nz]
+Email:   [info@itsgroup.co.nz]
+Country: New Zealand
