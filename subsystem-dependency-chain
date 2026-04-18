@@ -1,7 +1,6 @@
 ## Subsystem Dependency Chain
 
 ```mermaid
-
 flowchart TD
     SYSTEMD["systemd"] --> BI["bio_init"]
 
@@ -53,5 +52,4 @@ flowchart TD
     class BR_STATUS,BR_HEART,BR_HEALTH,BR_RESONANCE,BR_PULSE,BR_CONSUMER,SYSMON,ALERT_CON,ALERT_DIS monitor
     class AUDITOR,ANALYZER,GRAPHDB,LIBRARIAN product
     class AGENT_INBOX,DEERFLOW deerflow
-
 ```
