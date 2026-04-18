@@ -51,6 +51,8 @@ If the answer is the latter, stop.
 
 ## Contact ITS Group
 
-Website: [https://itsgroup.co.nz]
-Email:   [info@itsgroup.co.nz]
+Website: https://itsgroup.co.nz
+
+Email:   info@itsgroup.co.nz
+
 Country: New Zealand
